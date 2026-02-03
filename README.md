@@ -1,2 +1,4 @@
-# hyprland-dotfiles
-My personal hyprland rice (janky, but hey. It's mine).
+Fonts used:
+- Noto Sans Nerd
+- Noto Sans Nerd Mono
+- Maple Mono NF CN
