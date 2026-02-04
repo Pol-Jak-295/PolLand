@@ -3,9 +3,9 @@
 	// Using margin-bottom with a negative value in order to reduce the space between Hyprland window and waybar
 	"margin-bottom": 0,
 	"margin-top": 2,
-	"modules-left": ["custom/launcher", "cpu","memory", "network","custom/spotify", "tray", "custom/lyrics"],
+	"modules-left": ["custom/launcher", "cpu","memory", "network",, "tray", "custom/lyrics"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["backlight","pulseaudio","clock", "battery", "custom/power"],
+	"modules-right": ["custom/spotify", "backlight","pulseaudio","clock", "battery", "custom/power"],
 	
 	"pulseaudio": {
 		"tooltip": false,

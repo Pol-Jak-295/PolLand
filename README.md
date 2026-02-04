@@ -17,7 +17,7 @@ My personal Hyprland "rice" — a configuration collection for Hyprland and rela
 ## About
 This repository contains my Hyprland configuration, themes, scripts, and small customizations. It's intended as a working personal setup and as a reference for others who want ideas or pieces to reuse.
 
-This is a personal repo — these configs reflect my preferences (keybindings, layout, colors, programs). Expect things to be opinionated.
+This is a personal repo — these configs reflect my preferences (keybindings, layout, colors, programs, hardware configuration). Expect things to be opinionated.
 
 ## Status
 Development will continue, but progress is slow. Some things are broken at the moment — I know about them and they will be fixed... once. If you find issues or have improvements, help is welcome.
@@ -25,7 +25,8 @@ Development will continue, but progress is slow. Some things are broken at the m
 ## Requirements
 At a minimum you will need:
 - A Wayland session and Hyprland installed
-- Typical Wayland utilities (e.g., a terminal emulator you prefer, notification daemon, bar, lock screen)
+- Your choice of greeter
+- The following programs for which the config files are: Kitty (terminal emulator), Nautilus (it is mentioned in the hyprland config, but not necessary if you preffer another), Waybar, Rofi (launcher)
 - Familiarity with configuring and restoring your dotfiles
 
 Exact dependencies vary by file. Inspect each configuration before applying it.
@@ -77,6 +78,7 @@ Short summary: you may use, copy, modify, and distribute this code with attribut
 ## Credits & contact
 - Owner / contact: [Pol-Jak-295](https://github.com/Pol-Jak-295)
 - This repo contains my personal configurations and small scripts — I reuse public projects and ideas from the Wayland / Hyprland community; credit to upstream projects where appropriate.
+- If i used your IP you can request for it to be removed/replaced from the repo or you can ask me to mention that i used your work .
 
 ## AI disclaimer
 This README was generated with the assistance of an AI. Review the content and adapt it to match the repository and your expectations.
