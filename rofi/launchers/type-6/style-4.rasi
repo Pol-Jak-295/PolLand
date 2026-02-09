@@ -1,10 +1,15 @@
 /**
  *
- * Author : Aditya Shakya (adi1090x), Jaka Polesnik (Pol-Jak-295)
+ * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
  * 
  * Rofi Theme File
  * Rofi Version: 1.7.3
+ *
+ *
+ * Modified later by: Jaka Polesnik (Pol-Jak-295)
+ * Github: Pol-Jak-295
+ *
  **/
 
 /*****----- Configuration -----*****/
@@ -22,11 +27,11 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "Maple Mono NF CN 10";
-    background:                  #89b4fa;
-    background-alt:              #cba6f7;
+    background:                  #6994da;
+    background-alt:              #6994da;
     foreground:                  #11111b;
-    selected:                    #cba6f7;
-    active:                      #b4befe;
+    selected:                    #74c7ec;
+    active:                      #89b4fa;
     urgent:                      #eba0ac;
 }
 
@@ -61,7 +66,7 @@ mainbox {
 imagebox {
     padding:                     20px;
     background-color:            transparent;
-    background-image:            url("~/Downloads/Bao.png", width);
+    background-image:            url("~/.config/images/MIKU.jpg", width);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }
