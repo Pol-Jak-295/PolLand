@@ -142,8 +142,8 @@ Check individual scripts in `waybar/scripts/` for specific requirements.
 │   ├── scripts/      # Custom modules (weather, crypto, GPU, etc.)
 │   ├── config.jsonc  # Bar layout and modules
 │   └── style.css     # Bar styling
-├── images/           # Wallpapers
-└── screenshots/      # Preview images
+├── images/           # Wallpaper and other images the rice uses ()
+└── screenshots/     rofi launcher images # Preview images
 ```
 
 ## Usage & customization
