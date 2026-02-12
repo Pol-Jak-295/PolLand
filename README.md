@@ -235,7 +235,7 @@ Smooth bezier-curve animations for:
 - Layer (overlay) animations
 
 ### Workspace Names
-Japanese numeral workspace names (一, 二, 三, 四, 五, 六, 七, 八, 九, 十) - currently broken
+Japanese numeral workspace names (一, 二, 三, 四, 五, 六, 七, 八, 九, 十)
 
 ### Auto-start
 - Waybar status bar

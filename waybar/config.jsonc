@@ -3,7 +3,7 @@
 	// Using margin-bottom with a negative value in order to reduce the space between Hyprland window and waybar
 	"margin-bottom": 0,
 	"margin-top": 2,
-	"modules-left": ["custom/launcher", "cpu","memory", "network",, "tray", "custom/lyrics"],
+	"modules-left": ["custom/launcher", "cpu","memory", "network", "tray", "custom/lyrics"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["custom/spotify", "backlight","pulseaudio","clock", "battery", "custom/power"],
 	
@@ -99,14 +99,22 @@
     },
     "custom/power":{
         "format": "",
-        "on-click": "bash ~/.config/rofi/leave/leave.sh"
+        "on-click": "wlogout"
     },
 "hyprland/workspaces": {
-    "format": "{name}",
+    "format": "{icon}",
     "format-icons": {
-        "active": " ",
-        "default": " ",
-        "urgent": " "
+    "1": "一",
+    "2": "二",
+    "3": "三",
+    "4": "四",
+    "5": "五",
+    "6": "六",
+    "7": "七",
+    "8": "八",
+    "9": "九",
+    "10": "十"
+                                                                                              }
     },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
