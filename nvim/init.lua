@@ -1,4 +1,4 @@
--- Auto-install lazy.nvim (no manual git clone needed!)
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -6,32 +6,16 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
+    "--branch=stable", -- latest stable release
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Basic quality of life settings
-vim.opt.number = true
-vim.opt.relativenumber = false
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.termguicolors = true  -- IMPORTANT for colors to work
 
-vim.opt.clipboard = "unnamedplus"
-vim.opt.signcolumn = "yes"
-vim.opt.cursorline = true
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
--- Set leader key (comma)
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
-
--- Configure plugins
+-- plugins
 require("lazy").setup({
+
   -- FILE TREE
   {
     "nvim-tree/nvim-tree.lua",
@@ -39,14 +23,15 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("nvim-tree").setup({
-        view = {
-          width = 35,
-        },
+        view = { width = 35 },
+        -- Optional: Add these for better experience
+        git = { enable = true },
+        diagnostics = { enable = true },
       })
-      vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>')
+      vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
     end,
   },
-  
+
   -- INDENT GUIDES
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -54,25 +39,96 @@ require("lazy").setup({
     config = function()
       require("ibl").setup({
         indent = { char = "│" },
+        -- Optional: Show scope (current indent context)
+        scope = { enabled = true },
       })
     end,
   },
-  
-  -- CATPPUCCIN THEME
+
+  -- THEME (good as is)
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     config = function()
-      require("catppuccin").setup({
-        flavour = "mocha",
-      })
+      require("catppuccin").setup({ flavour = "mocha" })
       vim.cmd.colorscheme("catppuccin")
     end,
   },
-})
 
--- No background in vim
-vim.cmd[[hi Normal guibg=NONE ctermbg=NONE]]
-vim.cmd[[hi NormalNC guibg=NONE ctermbg=NONE]]
+  -- LUALINE (good as is)
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup({
+        options = { theme = "catppuccin" }
+      })
+    end,
+  },
+
+  -- BUFFERLINE (good as is)
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("bufferline").setup()
+    end,
+  },
+
+  -- TELESCOPE (good as is - fixed version)
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("telescope").setup({})
+      local builtin = require("telescope.builtin")
+
+      vim.keymap.set("n", "<leader>ff", builtin.find_files)
+      vim.keymap.set("n", "<leader>fg", builtin.live_grep)
+      vim.keymap.set("n", "<leader>fb", builtin.buffers)
+      vim.keymap.set("n", "<leader>fh", builtin.help_tags)
+    end,
+  },
+
+  -- TREESITTER (good as is)
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "lua", "bash", "python", "c", "cpp", "json" },
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
+  },
+
+  -- GITSIGNS (good as is)
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
+
+  -- AUTOPAIRS (good as is)
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({
+        check_ts = true,
+      })
+    end,
+  },
+
+  -- COMMENT.NVIM (good as is)
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  },
+})
 
