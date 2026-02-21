@@ -4,7 +4,7 @@
 #
 # install script for PolLand rice
 
-config_dirs=( "hypr" "waybar" "rofi" "kitty" "nvim" "gtk-3.0" "gtk-4.0" "ani-cli" "images" "nwg-bar")
+config_dirs=( "hypr" "waybar" "rofi" "kitty" "nvim" "gtk-3.0" "gtk-4.0" "ani-cli" "images" "nwg-bar" "fastfetch")
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SUFFIX=$(date +%s)
 CNT="\e[1;36m"
