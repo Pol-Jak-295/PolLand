@@ -258,6 +258,21 @@ This is primarily my personal configuration, but contributions are welcome:
 - Waybar scripts may need dependency adjustments for your system
 - File an issue with details if something breaks for you
 
+## Status
+
+Active development — recent updates include:
+- ✅ **Lock screen**: Added Hyprlock with Frieren aesthetic
+- ✅ **Login manager**: Custom SDDM Sugar Candy theme
+- ✅ **Power menu**: Fixed non-working power/suspend buttons
+- ✅ **Terminal**: Kitty now launches as login shell
+- ✅ **Neovim**: Added new plugins and refinements
+- ✅ **Cleanup**: Removed unused Rofi themes and obsolete scripts
+- ⏳ **Japanese numerals**: Workspace names still being worked on
+
+Some things may still be janky, but they're *my* kind of janky. PRs and ideas welcome!
+
+---
+
 ## License
 This repository is distributed under the MIT License. See the LICENSE file for full text.
 
