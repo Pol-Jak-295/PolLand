@@ -37,6 +37,9 @@ Development will continue, but progress is slow. Some things are broken at the m
 - **brightnessctl** - Brightness control
 - **wpctl** (pipewire-utils) - Audio control
 - **playerctl** - Media playback control
+- **hyprlock**
+- **nwg-bar**
+- **sddm and it's sugar-candy thene**
 
 ### Optional
 - **Flameshot** - Screenshots (bound to Alt+F12)

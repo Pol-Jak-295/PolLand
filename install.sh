@@ -4,7 +4,7 @@
 #
 # install script for PolLand rice
 
-config_dirs=( "hypr" "waybar" "rofi" "kitty" "nvim" "gtk-3.0" "gtk-4.0" "ani-cli" "images" )
+config_dirs=( "hypr" "waybar" "rofi" "kitty" "nvim" "gtk-3.0" "gtk-4.0" "ani-cli" "images" "nwg-bar")
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SUFFIX=$(date +%s)
 CNT="\e[1;36m"
@@ -77,4 +77,10 @@ echo -e "${CNT}Installation complete!${OFF}"
 if [ "$SYMLINK" = true ]; then
     echo "Configs are symlinked. Run 'git pull' in $REPO_DIR to update."
 fi
-echo "You may need to reload Hyprland (Super+Shift+R) or restart your session."
+echo "You may need to reload Hyprland (Super+Shift+R) or restart your session for changes to apply."
+echo "This rice includes some extra configurations for greeters and such. Those changes require root privileges."
+echo -n "would you like to install those as well? [Y/n]"
+read -r root
+if [[ -z "$root" || "$root" =~ ^[Yy]$ ]]; then
+    $REPO_DIR/greeter-config.sh
+fi

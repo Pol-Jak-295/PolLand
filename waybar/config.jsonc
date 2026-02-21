@@ -99,7 +99,7 @@
     },
     "custom/power":{
         "format": "",
-        "on-click": "wlogout"
+        "on-click": "nwg-bar"
     },
 "hyprland/workspaces": {
     "format": "{icon}",
@@ -122,4 +122,4 @@
 }
 
 
-}
+
