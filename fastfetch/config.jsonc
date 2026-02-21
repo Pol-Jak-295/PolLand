@@ -1,0 +1,116 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/miku-onion48x48.txt"
+},    
+
+    "display": {
+        "color": {
+            "keys": "bright_cyan",      // Miku's turquoise
+            "title": "bright_green",     // Green onion color
+            "output": "default",         // Keep output readable
+            "separator": "bright_green"  // Green onion separators
+        },
+        "key": {
+            "type": "both",               // Show icons + text
+            "width": 20,                   // Align all keys nicely
+            "paddingLeft": 2
+        },
+        "separator": "  "                 // Green separator with icon
+    },
+    "modules": [
+        // Title with Miku styling
+        {
+            "type": "title",
+            "key": " Miku 🎤",
+            "keyColor": "bright_cyan",
+            "outputColor": "bright_green"
+        },
+        {
+            "type": "separator",
+            "string": "----------------------------------",
+            "color": "bright_green"
+        },
+
+        // System info with Miku-themed icons
+        {
+            "type": "os",
+            "key": " OS",
+            "keyColor": "cyan"
+        },
+        {
+            "type": "host",
+            "key": " Host",
+            "keyColor": "cyan"
+        },
+        {
+            "type": "kernel",
+            "key": " Kernel",
+            "keyColor": "cyan"
+        },
+        {
+            "type": "uptime",
+            "key": " Uptime",
+            "keyColor": "cyan"
+        },
+        {
+            "type": "packages",
+            "key": " Packages",
+            "keyColor": "cyan"
+        },
+        {
+            "type": "shell",
+            "key": " Shell",
+            "keyColor": "cyan"
+        },
+
+        // Green onion section separator
+        {
+            "type": "separator",
+            "string": " 🌱 Green Onions 🌱 ",
+            "color": "bright_green"
+        },
+
+        // Hardware with green accents
+        {
+            "type": "cpu",
+            "key": " CPU",
+            "keyColor": "bright_cyan",
+            "outputColor": "green"
+        },
+        {
+            "type": "gpu",
+            "key": " GPU",
+            "keyColor": "bright_cyan",
+            "outputColor": "green"
+        },
+        {
+            "type": "memory",
+            "key": " RAM",
+            "keyColor": "bright_cyan",
+            "outputColor": "green"
+        },
+        {
+            "type": "disk",
+            "key": " Disk",
+            "keyColor": "bright_cyan",
+            "outputColor": "green"
+        },
+
+        // Final green onion flourish
+        {
+            "type": "separator",
+            "string": " 🔥  Green Onion Power 🔥 ",
+            "color": "bright_green"
+        },
+
+        // Extra flair modules
+        {
+            "type": "colors",
+            "key": " Colors",
+            "symbol": "circle",
+            "paddingLeft": 2
+        }
+    ],
+}
