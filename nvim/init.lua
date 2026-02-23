@@ -30,6 +30,7 @@ require("lazy").setup({
         diagnostics = { enable = true },
       })
       vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
+      vim.keymap.set("n", "<A-e>", ":NvimTreeToggle<CR>", { silent = true })
     end,
   },
 
