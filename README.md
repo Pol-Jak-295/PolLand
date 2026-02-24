@@ -45,6 +45,10 @@ Some things may still be janky, but they're *my* kind of janky. PRs and ideas we
 
 ## Requirements
 
+### Disclaimer:
+
+This configuration is developed and tested on Arch Linux. Package names and install methods may differ on other distributions, and some dependencies might be AUR-only.
+
 ### Essential dependencies
 - **Hyprland** — Window manager
 - **Waybar** — Status bar
