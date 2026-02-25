@@ -78,7 +78,7 @@ if [ "$SYMLINK" = true ]; then
     echo "Configs are symlinked. Run 'git pull' in $REPO_DIR to update."
 fi
 echo "You may need to reload Hyprland (Super+Shift+R) or restart your session for changes to apply."
-echo "This rice includes some extra configurations for greeters and such. Those changes require root privileges."
+echo "This rice includes some extra configurations for greeters and the ani-cli executable. Those changes require root privileges."
 echo -n "would you like to install those as well? [Y/n]"
 read -r root
 if [[ -z "$root" || "$root" =~ ^[Yy]$ ]]; then
