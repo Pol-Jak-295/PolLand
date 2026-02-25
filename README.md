@@ -243,6 +243,12 @@ Changes take effect immediately or after reloading Hyprland.
 ### Animations
 Smooth bezier-curve animations for window open/close, workspace switching, border transitions, and layer overlays.
 
+## Lore
+**Frieren** is on the lockscreen and greeter. Frieren means to freeze in German. Locked computer. Frozen. Makes sense.
+**Hatsune Miku** is everywhere the system is actively doing something — wallpaper, fastfetch, rofi. Energetic. Running. Miku.
+**Rimuru Tempest** is the ani-cli launcher (Super+A). He canonically shapeshifts into anything. You do the math.
+The rest is Catppuccin Mocha and hope.
+
 ### Auto-start
 - Waybar status bar
 - SWWW wallpaper daemon (loads Hatsune Miku wallpaper by default)
