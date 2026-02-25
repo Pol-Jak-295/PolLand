@@ -23,7 +23,7 @@ This is a personal repo — these configs reflect my preferences (keybindings, l
 
 ## Screenshots
 
-![Daily usage](screenshots/screenshot-daily-useage.png)
+![Daily usage](screenshots/screenshot-daily-usage.png)
 ![Music](screenshots/screenshot-music.png)
 ![Workflow](screenshots/screenshot-workflow-2.png)
 ![App launcher](screenshots/screenshot-launcher.png)
