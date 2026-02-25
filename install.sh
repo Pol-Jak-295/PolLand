@@ -82,5 +82,5 @@ echo "This rice includes some extra configurations for greeters and the ani-cli 
 echo -n "would you like to install those as well? [Y/n]"
 read -r root
 if [[ -z "$root" || "$root" =~ ^[Yy]$ ]]; then
-    $REPO_DIR/greeter-config.sh
+    $REPO_DIR/root-required-installer.sh
 fi
