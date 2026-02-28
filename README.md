@@ -61,6 +61,9 @@ This configuration is developed and tested on Arch Linux. Package names and inst
 - **hyprlock** — Lock screen
 - **nwg-bar** — Power menu
 - **sddm** + Sugar Candy theme — Login manager
+- **swaync** - Notifications center
+- **hyprlock** - lock screen
+- **kexec** - Quick updates/reboots
 
 ### Optional
 - **Flameshot** — Screenshots (bound to `Alt+F12`)
@@ -100,7 +103,15 @@ The script will:
 
 3. Reload Hyprland with `Super+Shift+R` or restart your session.
 
-### Method 2: Manual install
+### Method 2: HailMary (curl | sh)
+
+1. Run the danger (does not check for dependencies):
+```bash
+curl -fsSL https://raw.githubusercontent.com/Pol-Jak-295/PolLand/main/instantinstall.sh | sh
+```
+
+
+### Method 3: Manual install
 
 1. Clone and inspect:
 ```bash
@@ -145,18 +156,23 @@ ln -s ~/PolLand/kitty ~/.config/kitty
 ├── gtk-3.0/          # GTK3 theme settings
 ├── gtk-4.0/          # GTK4 theme settings
 ├── hypr/             # Hyprland and Hyprlock configuration
+│   └── scripts/
 ├── images/           # Wallpapers used by the rice
 ├── kitty/            # Kitty terminal config
 ├── nvim/             # Neovim configuration
 ├── nwg-bar/          # Power menu config
+│   └── scripts/
 ├── rofi/             # Rofi launcher themes
 ├── screenshots/      # Preview images
 ├── sugar-candy/      # SDDM Sugar Candy login theme
 ├── waybar/           # Status bar config, styles, and scripts
 │   └── scripts/      # Custom modules (GPU, lyrics)
-├── greeter-configs.sh
 ├── install.sh
-└── suspender.sh
+├── root-required-installer.sh
+├── suspender.sh
+├── .zshrc
+├── .zprofile
+└── instantinstall.sh
 ```
 
 ## Usage & customization
@@ -178,6 +194,7 @@ ln -s ~/PolLand/kitty ~/.config/kitty
 | `Super+←/→/↑/↓` | Move focus between windows |
 | `Super+Mouse Left` (drag) | Move window |
 | `Super+Mouse Right` (drag) | Resize window |
+| `Super+M` | Power menu - nwg-bar |
 
 #### Workspaces
 | Keybind | Action |
@@ -246,9 +263,12 @@ The rest is Catppuccin Mocha and hope.
 - **Rounded corners** — 10px with power curve
 - **Gaps** — 5px inner, 10px outer
 
+
 ### Animations
 Smooth bezier-curve animations for window open/close, workspace switching, border transitions, and layer overlays.
 
+### Custom functions
+- **Custom power options** - kexec, and sudpend+lock
 
 ### Auto-start
 - Waybar status bar

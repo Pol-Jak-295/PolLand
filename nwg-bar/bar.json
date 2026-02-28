@@ -11,7 +11,7 @@
   },
     {
     "label": "Suspend",
-    "exec": "bash -c ~/suspender.sh",
+    "exec": "bash -c ~/.config/nwg-bar/scripts/suspender.sh",
     "icon": "/usr/share/nwg-bar/images/system-suspend.svg"
   },
   {
@@ -23,6 +23,11 @@
     "label": "Shutdown",
     "exec": "systemctl -i poweroff",
     "icon": "/usr/share/nwg-bar/images/system-shutdown.svg"
+  },
+  {
+    "label": "Quick Update",
+    "exec": "bash -c ~/.config/nwg-bar/scripts/kexec.sh",
+    "icon": "/usr/share/nwg-bar/images/kexec.svg"
   }
 
 ]

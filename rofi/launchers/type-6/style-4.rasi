@@ -26,7 +26,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "Maple Mono NF CN 10";
+    font:                        "Maple Mono NF CN 12";
     background:                  #6994da;
     background-alt:              #6994da;
     foreground:                  #11111b;
@@ -43,7 +43,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       1400px;
-    height:                      680px;
+    height:                      700px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -117,7 +117,7 @@ mode-switcher{
     text-color:                  @foreground;
 }
 button {
-    padding:                     15px;
+    padding:                     10px;
     border-radius:               10px;
     background-color:            @background-alt;
     text-color:                  inherit;
@@ -141,7 +141,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     10px;
+    spacing:                     5px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -150,8 +150,8 @@ listview {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     15px;
-    padding:                     8px;
+    spacing:                     10px;
+    padding:                     4px;
     border-radius:               10px;
     background-color:            transparent;
     text-color:                  @foreground;

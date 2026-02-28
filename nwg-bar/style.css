@@ -1,35 +1,51 @@
+/* Aligning with PolLand/wCatppuccin Mocha theme */
+
 window {
-        background-color: rgba (0, 0, 0, 1.0)
+    background-color: rgba(30, 30, 46, 0.1); /* Allows the inner-box to look floating */
 }
 
-/* Outer bar container, takes all the window width/height */
+/* The main container */
 #outer-box {
-	margin: 0px
+    margin: -15px;
+	background-color: rgba(30, 30, 46, 0.05);
+	border-radius: 12px;
+    border: 4px solid #89b4fa;
 }
 
-/* Inner bar container, surrounds buttons */
+/* The "floating" bar look to match your Control Center */
 #inner-box {
-	background-color: rgba (0, 0, 0, 0.85);
-	border-radius: 10px;
-	border-style: none;
-	border-width: 1px;
-	border-color: rgba (156, 142, 122, 0.7);
-	padding: 5px;
-	margin: 5px
+    background-color: rgba(30, 30, 46, 0.25); /* base color with 85% opacity */
+    border-radius: 12px;
+    border: 2px solid #89b4fa;
+    padding: 10px;
+    margin: 10px;
 }
 
+/* Resetting default button styles */
 button, image {
-	background: none;
-	border: none;
-	box-shadow: none
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
 button {
-	padding-left: 10px;
-	padding-right: 10px;
-	margin: 5px
+    padding: 12px;
+    margin: 4px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
 }
 
+/* Hover state matching your SwayNC buttons */
 button:hover {
-	background-color: rgba (255, 255, 255, 0.1)
+    background-color: rgba(137, 180, 250, 0.3); /* Sapphire glow */
+    outline: 2px solid #89b4fa;
+
+
+}
+
+/* Label styling if you use text under icons */
+label {
+    color:#cdd6f4;
+    font-family: "NotoSansMNFM-Reg";
+    font-size: 12pt;
 }

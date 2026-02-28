@@ -4,7 +4,7 @@
 #
 # install script for PolLand rice
 
-config_dirs=( "hypr" "waybar" "rofi" "kitty" "nvim" "gtk-3.0" "gtk-4.0" "ani-cli" "images" "nwg-bar" "fastfetch")
+config_dirs=( "hypr" "waybar" "rofi" "kitty" "nvim" "gtk-3.0" "gtk-4.0" "ani-cli" "images" "nwg-bar" "fastfetch" "swaync")
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SUFFIX=$(date +%s)
 CNT="\e[1;36m"
@@ -48,6 +48,9 @@ if [ "$SYMLINK" = true ]; then
             echo -e "  ${CWR}[skip]${OFF} $dir/ (not found in repo)"
         fi
     done
+    ln -sf "$REPO_DIR/.zshrc" "$HOME/.zshrc"
+    ln -sf "$REPO_DIR/.zprofile" "$HOME/.zprofile"
+
 else
     echo -e "${CNT}Copying PolLand configs...${OFF}"
     for dir in "${config_dirs[@]}"; do
@@ -82,5 +85,6 @@ echo "This rice includes some extra configurations for greeters and the ani-cli 
 echo -n "would you like to install those as well? [Y/n]"
 read -r root
 if [[ -z "$root" || "$root" =~ ^[Yy]$ ]]; then
+    chmod +x $REPO_DIR/root-required-installer.sh
     $REPO_DIR/root-required-installer.sh
 fi
