@@ -8,4 +8,5 @@ sudo mkdir /usr/share/sddm/themes/
 sudo cp -r $REPO_DIR/sugar-candy/ /usr/share/sddm/themes/
 sudo cp $REPO_DIR/ani-cli/ani-cli /usr/bin/ani-cli
 sudo chmod +x /usr/bin/ani-cli 
+sudo ln -sf $REPO_DIR/nwg-bar/icons /usr/share/nwg-bar/images/icons
 echo "Done."

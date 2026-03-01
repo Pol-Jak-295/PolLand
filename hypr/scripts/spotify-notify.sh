@@ -3,8 +3,8 @@
 CACHE_DIR="/tmp/spotify-art"
 mkdir -p "$CACHE_DIR"
 
-playerctl --follow metadata --format '{{title}}|{{artist}}|{{mpris:artUrl}}' | \
-while IFS="|" read -r title artist arturl; do
+playerctl --follow metadata --format '{{title}}|{{artist}}|{{mpris:artUrl}}|{{album}}' | \
+while IFS="|" read -r title artist arturl album; do
 
     # Skip empty
     [ -z "$title" ] && continue
@@ -18,5 +18,5 @@ while IFS="|" read -r title artist arturl; do
         ICON="spotify"
     fi
 
-    notify-send -i "$ICON" "$title" "$artist"
+    notify-send --app-name="Spotify" -i "$ICON" "$title" "$artist • $album"
 done

@@ -27,7 +27,7 @@
   {
     "label": "Quick Update",
     "exec": "bash -c ~/.config/nwg-bar/scripts/kexec.sh",
-    "icon": "~/.config/nwg-bar/icons/kexec.svg"
+    "icon": "/usr/share/nwg-bar/images/icons/kexec.svg"
   }
 
 ]
