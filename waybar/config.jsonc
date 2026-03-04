@@ -1,11 +1,12 @@
 {
 	"layer": "top",
 	// Using margin-bottom with a negative value in order to reduce the space between Hyprland window and waybar
-	"margin-bottom": 0,
+	"margin-bottom": -6,
 	"margin-top": 2,
 	"modules-left": ["custom/launcher", "cpu","memory", "network", "tray", "custom/lyrics"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["custom/spotify", "backlight","pulseaudio","clock", "battery", "custom/power"],
+	"modules-right": ["backlight","pulseaudio","clock", "battery", "custom/power"],
+	"height": 26,
 	
 	"pulseaudio": {
 		"tooltip": false,
@@ -84,14 +85,8 @@
         "format": " {}%",
         "max-length": 10
     },
-    "custom/spotify": {
-    	"interval": 1,
-	"return-type": "json",
-	"exec": "~/.config/waybar/scripts/spotify.sh",
-	"exec-if": "pgrep spotify",
-	"escape": true
 
-    },
+
     "custom/launcher":{
         "format": " ",
         "on-click": "rofi -show drun -theme /home/jaka/.config/rofi/launchers/type-6/style-4.rasi",
@@ -101,6 +96,8 @@
         "format": "",
         "on-click": "nwg-bar"
     },
+
+
 "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
