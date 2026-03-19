@@ -364,4 +364,5 @@ You may use, copy, modify, and distribute this code with attribution. No warrant
 
 ---
 
+*this readme and pictures are out of date. an update will happen soon enough.*
 *Parts of this documentation were written with AI assistance.*
