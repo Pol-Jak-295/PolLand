@@ -27,29 +27,32 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "Maple Mono NF CN 12";
-    background:                  #6994da;
-    background-alt:              #6994da;
+    background:                  #6994dabb;
+    background-alt:              #6994daaa;
     foreground:                  #11111b;
-    selected:                    #74c7ec;
-    active:                      #89b4fa;
+    selected:                    #89b4fa66;
+    active:                      #74c7ec88;
     urgent:                      #eba0ac;
+
 }
 
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */
-    transparency:                "real";
+    /*transparency:                "real";*/
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       1400px;
-    height:                      700px;
+    width:                       1200px;
+    height:                      714px;
     x-offset:                    0px;
     y-offset:                    0px;
 
+    border-color: 		 #89b4fa;
+    border: 			 2px;
     /* properties for all widgets */
     enabled:                     true;
-    border-radius:               15px;
+    border-radius:               24px;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -64,9 +67,9 @@ mainbox {
 }
 
 imagebox {
-    padding:                     20px;
+    padding:                     16px;
     background-color:            transparent;
-    background-image:            url("~/.config/images/MIKU.jpg", width);
+    background-image:            url("~/.config/images/MIKU.jpg", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }
@@ -88,7 +91,7 @@ inputbar {
     enabled:                     true;
     spacing:                     10px;
     padding:                     15px;
-    border-radius:               10px;
+    border-radius:               24px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     children:                    [ "textbox-prompt-colon", "entry" ];
@@ -97,12 +100,12 @@ textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "";
-    background-color:            inherit;
+    background-color:            #00000000;
     text-color:                  inherit;
 }
 entry {
     enabled:                     true;
-    background-color:            inherit;
+    background-color:            #00000000;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search";
@@ -118,21 +121,23 @@ mode-switcher{
 }
 button {
     padding:                     10px;
-    border-radius:               10px;
+    border-radius:               24px;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      pointer;
 }
 button selected {
-    background-color:            @selected;
+    background-color:            #74c7ec;
     text-color:                  @foreground;
+    border-color: 		 #89b4fa;
+    border: 			 2px;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       8;
+    lines:                       12;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -152,10 +157,11 @@ element {
     enabled:                     true;
     spacing:                     10px;
     padding:                     4px;
-    border-radius:               10px;
+    border-radius:               24px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
+        
 }
 element normal.normal {
     background-color:            inherit;
@@ -172,6 +178,8 @@ element normal.active {
 element selected.normal {
     background-color:            @selected;
     text-color:                  @foreground;
+    border-color: 		 #89b4fa;
+    border: 			 2px;
 }
 element selected.urgent {
     background-color:            @urgent;
@@ -201,7 +209,7 @@ message {
 }
 textbox {
     padding:                     15px;
-    border-radius:               10px;
+    border-radius:               24px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     vertical-align:              0.5;

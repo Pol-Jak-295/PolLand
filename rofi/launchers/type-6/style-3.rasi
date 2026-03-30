@@ -28,7 +28,7 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "Maple Mono NF CN 12";
-    background:                  #09164C;
+    background:                  #09164C88;
     background-alt:              #102886;
     foreground:                  #FFFFFF;
     selected:                    #89b4fa;
@@ -68,6 +68,7 @@ imagebox {
     padding:                     20px;
     background-color:            transparent;
     background-image:            url("~/.config/images/Rimuru.jpg", height);
+    background-opacity:		 0.5;
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
 }
