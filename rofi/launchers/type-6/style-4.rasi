@@ -52,7 +52,8 @@ window {
     border: 			 2px;
     /* properties for all widgets */
     enabled:                     true;
-    border-radius:               24px;
+    border-radius:               32px 20px 32px 20px;
+
     cursor:                      "default";
     background-color:            @background;
 }
@@ -91,7 +92,7 @@ inputbar {
     enabled:                     true;
     spacing:                     10px;
     padding:                     15px;
-    border-radius:               24px;
+    border-radius:               28px 18px 28px 18px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     children:                    [ "textbox-prompt-colon", "entry" ];
@@ -121,7 +122,8 @@ mode-switcher{
 }
 button {
     padding:                     10px;
-    border-radius:               24px;
+    border-radius:               28px 18px 28px 18px;
+
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      pointer;
@@ -157,7 +159,7 @@ element {
     enabled:                     true;
     spacing:                     10px;
     padding:                     4px;
-    border-radius:               24px;
+    border-radius:               20px 14px 20px 14px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
