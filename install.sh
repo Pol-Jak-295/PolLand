@@ -51,7 +51,7 @@ if [ "$SYMLINK" = true ]; then
     ln -sf "$REPO_DIR/.zshrc" "$HOME/.zshrc"
     ln -sf "$REPO_DIR/.zshrc.core" "$HOME/.zshrc.core"
     ln -sf "$REPO_DIR/.zshrc.aliases" "$HOME/.zshrc.aliases"
-    ln -sf "$REPO_DIR/.zshr.fucntionsc" "$HOME/.zshrc.functions"
+    ln -sf "$REPO_DIR/.zshrc.fucntions" "$HOME/.zshrc.functions"
     ln -sf "$REPO_DIR/.zprofile" "$HOME/.zprofile"
 
 else
