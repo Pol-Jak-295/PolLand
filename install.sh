@@ -49,6 +49,9 @@ if [ "$SYMLINK" = true ]; then
         fi
     done
     ln -sf "$REPO_DIR/.zshrc" "$HOME/.zshrc"
+    ln -sf "$REPO_DIR/.zshrc.core" "$HOME/.zshrc.core"
+    ln -sf "$REPO_DIR/.zshrc.aliases" "$HOME/.zshrc.aliases"
+    ln -sf "$REPO_DIR/.zshr.fucntionsc" "$HOME/.zshrc.functions"
     ln -sf "$REPO_DIR/.zprofile" "$HOME/.zprofile"
 
 else
@@ -61,6 +64,11 @@ else
         else
             echo -e "  ${CWR}[skip]${OFF} $dir/ (not found in repo)"
         fi
+        cp "$REPO_DIR/.zshrc" "$HOME/.zshrc"
+        cp "$REPO_DIR/.zshrc.core" "$HOME/.zshrc.core"
+        cp "$REPO_DIR/.zshrc.aliases" "$HOME/.zshrc.aliases"
+        cp "$REPO_DIR/.zshr.fucntionsc" "$HOME/.zshrc.functions"
+        cp "$REPO_DIR/.zprofile" "$HOME/.zprofile"
     done
 fi
 
@@ -81,6 +89,7 @@ if [ "$SYMLINK" = true ]; then
     echo "Configs are symlinked. Run 'git pull' in $REPO_DIR to update."
 fi
 echo "You may need to reload Hyprland (Super+Shift+R) or restart your session for changes to apply."
+
 echo "This rice includes some extra configurations for greeters and the ani-cli executable. Those changes require root privileges."
 echo -n "would you like to install those as well? [Y/n]"
 read -r root

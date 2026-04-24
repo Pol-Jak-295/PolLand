@@ -1,0 +1,60 @@
+# =============================================
+# ALIASES (Your Linux Admin Specials)
+# =============================================
+# Network/WiFi
+alias wifi-ap='sudo ~/scripts/hotspot.sh start && echo "Hotspot: ap0 on 192.168.12.1"'
+alias wifi-off='sudo ~/scripts/hotspot.sh stop'
+alias wifi-status='ip -c addr show dev wlan0; ip -c addr show dev ap0 2>/dev/null || echo "ap0 not active"'
+alias nm-status='nmcli -c no dev status'
+alias netinfo='ip -c addr; echo "---"; ip -c route; echo "---"; nmcli con show --active'
+
+# Daily Needs
+alias stfu='sudo pacman -Syuq'
+alias fucking='sudo -E env "PATH=$PATH" zsh -ic'
+alias ll='lsd -la'
+alias why='systemctl status'
+alias fix='sudo systemctl restart'
+alias nope='kill -9'
+alias ls='lsd -a'
+alias fuck='reboot'
+alias :wq='exit'    # My brain got vim-coded
+alias screenoff='WAYLAND_DISPLAY=wayland-1 wlopm --off eDP-1'
+alias screenon='WAYLAND_DISPLAY=wayland-1 wlopm --on eDP-1'
+alias off='WAYLAND_DISPLAY=wayland-1 wlopm --off eDP-1'
+alias on='WAYLAND_DISPLAY=wayland-1 wlopm --on eDP-1'
+alias snvim='sudo -E nvim'
+
+# System
+alias sys='sudo systemctl'
+alias journal='sudo journalctl -xe'
+alias pac='sudo pacman'
+alias yay='yay --sudoloop'
+alias update='sudo pacman -Syu'
+
+# Quick editing
+alias zshrc='nvim ~/.zshrc'
+alias sz='source ~/.zshrc'
+alias vim='nvim'
+
+# Docker/Containers
+alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias dka='docker kill $(docker ps -q)'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+
+# Quality of life
+alias l='lsd'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip -c'
+alias cat='bat --paging=never --theme=TwoDark' # Better cat
+alias tf='terraform'
+alias k='kubectl'
+alias mkdir='mkdir -p'
+alias rm='rm -I' # Safety first
+
+# Hardware/Network debugging
+alias lsmodg='lsmod | grep -i'
+alias dmesgw='sudo dmesg -w'
+alias iwscan='sudo iw dev wlan0 scan | grep -E "SSID|signal|freq"'
+alias ports='sudo ss -tulpn'

@@ -1,0 +1,41 @@
+
+# =============================================
+# FUNCTIONS (custom tools)
+# =============================================
+
+# Find what's using a port
+function port-user() {
+    sudo lsof -i :$1
+}
+
+# Git shortcut
+function gacp() {
+    git add .
+    git commit -m "$1"
+    git push
+}
+
+# Quick script template
+function mkscript() {
+    cat > $1 << 'EOF'
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Usage: $0 [options]
+# Description:
+
+main() {
+    # Your code here
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    main "$@" 
+fi
+EOF
+    chmod +x $1
+    $EDITOR $1
+}
+
+
+

@@ -1,0 +1,62 @@
+# =============================================
+# HISTORY
+# =============================================
+HISTFILE=~/.zsh_history
+HISTSIZE=200000
+SAVEHIST=500000
+setopt appendhistory
+setopt share_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
+# =============================================
+# COMPLETION
+# =============================================
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
+
+# =============================================
+# PROMPT with Git info
+# =============================================
+# Git info setup
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '(%b)'
+setopt prompt_subst
+
+# Right prompt (exit status)
+RPROMPT='%F{red}%(?..[%?])%f'
+
+# Left prompt with git branch
+PROMPT='%F{blue}%n@%m%f %F{green}%~%f %F{yellow}${vcs_info_msg_0_}%f %# '
+
+# =============================================
+# SYNTAX HIGHLIGHTING COLORS
+# =============================================
+if [[ -n "$KITTY_WINDOW_ID" ]]; then
+  # Truecolor hex styles for Kitty
+  ZSH_HIGHLIGHT_STYLES[command]='fg=#a6e3a1'
+  ZSH_HIGHLIGHT_STYLES[builtin]='fg=#a6e3a1,bold'
+  ZSH_HIGHLIGHT_STYLES[alias]='fg=#a6e3a1,italic,bold'
+  ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#6c7086'
+  ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#6c7086'
+  ZSH_HIGHLIGHT_STYLES[path]='fg=#89b4fa'
+  ZSH_HIGHLIGHT_STYLES[string]='fg=#fab387'
+  ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#f38ba8,bold'
+  ZSH_HIGHLIGHT_STYLES[redirection]='fg=#f9e2af'
+  ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#f9e2af'
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#6c7086'
+else
+  # Fallback 256-color styles for other terminals
+  ZSH_HIGHLIGHT_STYLES[command]='fg=114'
+  ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=244'
+  ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=244'
+  ZSH_HIGHLIGHT_STYLES[path]='fg=111'
+  ZSH_HIGHLIGHT_STYLES[string]='fg=214'
+  ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=203,bold'
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
+fi
