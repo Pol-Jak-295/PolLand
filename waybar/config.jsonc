@@ -90,7 +90,7 @@
 
     "custom/launcher":{
         "format": " ",
-        "on-click": "rofi -show drun -theme /home/jaka/.config/rofi/launchers/type-6/style-4.rasi",
+        "on-click": "rofi -show drun -theme ~/.config/rofi/launchers/type-6/style-4.rasi",
         "on-click-right": "killall rofi"
     },
     "custom/power":{
