@@ -58,3 +58,7 @@ alias lsmodg='lsmod | grep -i'
 alias dmesgw='sudo dmesg -w'
 alias iwscan='sudo iw dev wlan0 scan | grep -E "SSID|signal|freq"'
 alias ports='sudo ss -tulpn'
+
+
+# Connections (stay safe)
+alias ssh='ssh -o KexAlgorithms=mlkem768x25519-sha256'
