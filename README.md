@@ -77,13 +77,13 @@ This configuration is developed and tested on **Arch Linux**. Package names will
 - **Nautilus** — File manager
 - **Bibata-Modern-Ice** — Cursor theme (I haven't tested sddm without it, so beware)
 - **Catppuccin-Mocha-Blue** — GTK theme (I bundled it for gtk, but you might want to use them elsewhere as well)
+- **Spotify** — Yes it's proprietary (it's not mandatory, but I'm used to it)
 - **Spicetify + spotify-adblock** — For the full Spotify experience (come on respect yourself)
-- **ani-cli** — The bundled installer puts this in `/usr/bin/ani-cli`, but it will not work without the actual app installed
+- **Curd** — For the anime (I liked the ui and it's reliability, there is a matching theme for it on github, likely soon on aur)
 
 ### Script Dependencies
-- `waybar/scripts/gpu.sh` — Expects an AMD dGPU at `card1`. Adjust the path for your hardware.
 - `waybar/scripts/lyrics.sh` — Requires `waybar-lyric` and `playerctl`.
-- `hypr/scripts/spotify-notify.sh` — Requires Spotify/Spicetify to be running.
+- `hypr/scripts/spotify-notify.sh` — Requires Spotify to be running.
 
 ## Installation
 
