@@ -252,6 +252,9 @@ window#waybar.hidden {
 	color: #181825;
 	background: #74c7ec;
 	font-size: 11pt;
+	font-family: "Noto Sans Nerd Font" ;
+	font-weight: 500;
+
 }
 
 
