@@ -2,6 +2,8 @@
 
 My personal Hyprland rice — a meticulously crafted, slightly chaotic collection of configs for Hyprland, Wayland tooling, and a suite of related apps. It's opinionated, heavily themed around Catppuccin Mocha and anime characters, and tailored precisely to my workflow. Janky? Sometimes. A labor of love? Absolutely.
 
+> **Recent breaking changes (June 2026):** Hyprland config migrated to Lua, workspace mode changed from dwindle to scroll, and `ani-cli` has been replaced with a themed fork of `curd`. See the [changelog](#changelog) for details.
+
 If you find something useful, feel free to steal it. Just know what you're getting into.
 
 ## Table of contents
@@ -12,7 +14,7 @@ If you find something useful, feel free to steal it. Just know what you're getti
 - [Installation](#installation)
 - [What's included](#whats-included)
 - [Usage & customization](#usage--customization)
-- [Contributing & help](#contributing--help)
+- [Changelog](#changelog)
 - [Known issues](#known-issues)
 - [License](#license)
 - [Credits & contact](#credits--contact)
@@ -31,7 +33,7 @@ This is tested exclusively on Arch Linux. While you can adapt it, the setup assu
 ![Music & Spotify](screenshots/screenshot-music.png)
 ![Workflow](screenshots/screenshot-workflow-2.png)
 ![Notification Center](screenshots/screenshot-notifications.png)
-![Ani-cli Rofi menu](screenshots/screenshot-ani-cli_rofi.png)
+![Curd anime launcher](screenshots/screenshot-curd.png)
 
 ## Feature Status
 
@@ -43,14 +45,12 @@ This rice is under active, continuous development. Here's a snapshot of the curr
 - ✅ **Shell** — Zsh with Powerlevel10k, modular `.zshrc` files, and a plethora of quality-of-life aliases.
 - ✅ **Terminal** — Kitty set up as a login shell with Catppuccin Mocha colors.
 - ✅ **Neovim** — Fully loaded with lazy.nvim, Catppuccin theme, Telescope, Treesitter, and more.
-- ✅ **Workspaces** — Named with Japanese numerals (一, 二, 三, 四, 五, 六, 七, 八, 九, 十).
+- ✅ **Workspaces** — Named with Japanese numerals (一, 二, 三, 四, 五, 六, 七, 八, 九, 十) via the new Lua API.
 - ✅ **Music Integration** — Spicetify with a Catppuccin Mocha theme, album art in notifications, and a waybar-lyric module.
 - ✅ **Notification Center** — SwayNC with Japanese UI labels, full Catppuccin Mocha styling, and an MPRIS widget.
 - ✅ **Dark/Light Mode** — Automated switching via `darkman`.
-- ✅ **Anime Launcher** — A custom Rofi menu for `ani-cli` with a Rimuru theme and sensible default settings.
+- ✅ **Anime Streaming** — Custom-themed `curd` fork with Anilist tracking, Discord RPC, and automatic intro/outro skipping. Replaces the deprecated `ani-cli`.
 - ✅ **Fastfetch** — Comes with a custom Hatsune Miku ANSI art display.
-
-Some elements are in a permanent state of "my kind of janky." New ideas and PRs are always welcome.
 
 ## Requirements
 
@@ -58,7 +58,7 @@ Some elements are in a permanent state of "my kind of janky." New ideas and PRs 
 This configuration is developed and tested on **Arch Linux**. Package names will differ on other distributions, and many dependencies are AUR-only. The installer does not check for dependencies.
 
 ### Essential Dependencies
-- **Hyprland** — Wayland compositor
+- **Hyprland** — Wayland compositor (0.55+ required for Lua config)
 - **Kitty** — Terminal emulator
 - **Waybar** — Status bar
 - **Rofi** — Application launcher
@@ -75,11 +75,11 @@ This configuration is developed and tested on **Arch Linux**. Package names will
 ### Optional Dependencies
 - **Flameshot** — Screenshots (bound to `Alt+F12`)
 - **Nautilus** — File manager
-- **Bibata-Modern-Ice** — Cursor theme (I haven't tested sddm without it, so beware)
-- **Catppuccin-Mocha-Blue** — GTK theme (I bundled it for gtk, but you might want to use them elsewhere as well)
-- **Spotify** — Yes it's proprietary (it's not mandatory, but I'm used to it)
-- **Spicetify + spotify-adblock** — For the full Spotify experience (come on respect yourself)
-- **Curd** — For the anime (I liked the ui and it's reliability, there is a matching theme for it on github, likely soon on aur)
+- **Bibata-Modern-Ice** — Cursor theme
+- **Catppuccin-Mocha-Blue** — GTK theme
+- **Spotify** — Yes it's proprietary (not mandatory, but I'm used to it)
+- **Spicetify + spotify-adblock** — For the full Spotify experience
+- **curd-polland-bin** or **curd-polland-git** — My themed fork of curd for anime streaming
 
 ### Script Dependencies
 - `waybar/scripts/lyrics.sh` — Requires `waybar-lyric` and `playerctl`.
@@ -98,9 +98,18 @@ This configuration is developed and tested on **Arch Linux**. Package names will
     chmod +x install.sh
     ./install.sh
     ```
-    The script will guide you through backing up existing configs and setting up symlinks. It will also offer to run a `root-required-installer.sh` for system-wide components like the SDDM theme, `ani-cli`, and nwg-bar icons.
+    The script will guide you through backing up existing configs and setting up symlinks. It will also offer to run a `root-required-installer.sh` for system-wide components like the SDDM theme and nwg-bar icons.
 
-3.  **Apply the changes:** Reload Hyprland with `Super+Shift+R`, or log out and back in.
+3.  **Install curd (anime launcher):**
+    ```bash
+    # Binary release (recommended)
+    yay -S curd-polland-bin
+
+    # Or build from latest commit
+    yay -S curd-polland-git
+    ```
+
+4.  **Apply the changes:** Reload Hyprland with `Super+Shift+R`, or log out and back in.
 
 ### Method 2: HailMary (curl|sh)
 For the brave and the reckless. This bypasses all sanity checks and does not verify dependencies.
@@ -123,14 +132,11 @@ Inspect everything and symlink what you like.
 
 ```
 .
-├── ani-cli/                  # Anime streaming with Rofi integration
-│   ├── ani-cli               # The script itself
-│   ├── ani-cli-rofi.sh       # Rofi wrapper for ani-cli
-│   └── rofi-menu.sh          # Search and settings menu
+├── curd/                    # Rofi themes for curd (the actual binary is installed separately)
 ├── etc/                      # System-level configs (e.g., sddm.conf)
 ├── fastfetch/                # System info with Miku ASCII art
 ├── gtk-3.0/ & gtk-4.0/       # GTK theme settings & CSS
-├── hypr/                     # Core Hyprland and Hyprlock configs
+├── hypr/                     # Core Hyprland and Hyprlock configs (Lua-based)
 │   ├── hyprland.conf
 │   ├── hyprlock.conf
 │   └── scripts/              # (spotify-notify.sh)
@@ -138,7 +144,7 @@ Inspect everything and symlink what you like.
 ├── kitty/                    # Kitty terminal config
 ├── nvim/                     # Full Neovim IDE setup
 ├── nwg-bar/                  # Power menu (CSS, icons, scripts)
-├── rofi/                     # Launchers with anime themes (Bao/Hatsune Miku, Rei Ayanami/Rimuru)
+├── rofi/                     # App launchers with anime themes (Bao/Hatsune Miku)
 ├── screenshots/              # What you see in this README
 ├── sugar-candy/              # Themed SDDM login greeter
 ├── swaync/                   # Notification center config and theme
@@ -158,7 +164,7 @@ Inspect everything and symlink what you like.
 |---|---|
 | `Super + Q` | Open terminal (Kitty) |
 | `Super + R` | App launcher (Miku-themed Rofi) |
-| `Super + A` | Anime launcher (Rimuru-themed Rofi) |
+| `Super + A` | Anime launcher (curd with Rimuru-themed Rofi) |
 | `Super + M` | Power menu (nwg-bar) |
 | `Super + N` | Toggle notification center (SwayNC) |
 | `Super + E` | File manager (Nautilus) |
@@ -173,7 +179,7 @@ More keybinds for media, window management, and special features are in `hypr/hy
 
 ### Theming & Customization
 - **Colors:** The entire rice is based on **Catppuccin Mocha**, with accent colors `sapphire (#74c7ec)` and `teal (#94e2d5)`. Look for CSS files in `waybar/`, `swaync/`, and `nwg-bar/` to tweak them.
-- **Launcher Images:** Replace `~/.config/images/MIKU.jpg` (app launcher) or `~/.config/images/Rimuru.jpg` (anime launcher) with your own.
+- **Launcher Images:** Replace `~/.config/images/MIKU.jpg` (app launcher) or `~/.config/images/Rimuru.jpg` (curd anime launcher) with your own.
 - **Lock Screen:** Modify `hypr/hyprlock.conf` and the wallpaper at `~/.config/images/frieren.png`.
 - **Monitor Setup:** This is the first thing you must change. Edit the monitor section at the top of `hypr/hyprland.conf`.
 
@@ -183,21 +189,52 @@ Your configs are symlinked to the repo. A simple `git pull` is all it takes.
 cd ~/PolLand
 git pull
 ```
+
+To update curd:
+```bash
+yay -S curd-polland-bin  # or curd-polland-git
+```
+
 Most changes take effect instantly or after a Hyprland reload (`Super+Shift+R`).
 
-## Contributing & Help
+## Changelog
 
-This is a personal setup, but I'm open to contributions that improve portability or fix bugs. If you have an idea:
-- Make it a small, focused PR.
-- Explain clearly what you're fixing and why.
+### June 2026 (c906976)
+- **BREAKING:** Hyprland config migrated to Lua (requires Hyprland 0.55+)
+- Workspace mode changed from dwindle to scroll
+- Waybar workspaces widget updated for new API
 
-If you're filing an issue, help me help you by including steps to reproduce the problem and any relevant logs or screenshots.
+### May 2026 (dd4d825)
+- **BREAKING:** Removed `ani-cli` and its configs
+- Added `curd` as the anime launcher (custom PolLand-themed fork)
+- Keybinding `Super + A` now launches curd
+- Updated README to reflect changes
+
+### April 2026
+- Refreshed screenshots
+- Split `.zshrc` into modular files
+- Fixed hardcoded paths in waybar config
+- Visual tweaks to rofi (asymmetric rounding, borders, transparency)
+
+### March 2026
+- Added fingerprint support to hyprlock
+- Added special music workspace (`Super + D`)
+- Integrated darkman for light/dark mode switching
+
+### February 2026
+- Major overhaul: nwg-bar restyling, swaync integration
+- Added kexec quick-reboot option
+- Added instantinstall.sh for curl|sh method
+- Added fastfetch with Miku ASCII art
+- Added SDDM greeter customization
+- Repository structure reorganized with install scripts
 
 ## Known Issues
 
 - **AMD GPU Path:** The `waybar/scripts/gpu.sh` script assumes an AMD dGPU at `card1`. You'll get a null output if yours is different.
-- **Hardcoded Paths:** Some configs, especially `waybar/config.jsonc`, might still have hardcoded paths from my system (`/home/jaka/...`). You **must** fix these for your username.
+- **Hardcoded Paths:** Some configs, especially older ones, might still have hardcoded paths from my system (`/home/jaka/...`). You **must** fix these for your username.
 - **Arch-Centric:** The installer and dependencies are heavily biased toward Arch Linux and the AUR. Adapting to other distros will be a manual process.
+- **Hyprland 0.55+ Required:** The Lua config will not work on older versions.
 - **"My Kind of Janky":** Some experimental features might be fragile. That's part of the fun.
 
 ## License
@@ -209,12 +246,12 @@ Distributed under the MIT License. See the `LICENSE` file for full details. Use 
 Created by [Pol-Jak-295](https://github.com/Pol-Jak-295).
 
 This rice stands on the shoulders of giants—the Hyprland and Wayland communities. Specific shout-outs:
-- **adi1090x**: Original Rofi themes, which I've modified.
-- **pystardust**: The `ani-cli` tool, bundled here for convenience (subject to its GPL-3.0 license).
+- **adi1090x**: Original Rofi themes, which I've modified for both the app launcher and curd.
+- **Wraient**: Upstream author of [curd](https://github.com/Wraient/curd), which replaced ani-cli in this rice.
+- **pystardust**: The `ani-cli` tool (now deprecated in PolLand, but still appreciated).
 - And of course, the devs behind **Hyprland, Waybar, Rofi, Kitty, SwayNC, and nwg-bar.** You're all wizards.
 
 If I've used your work and you'd like different attribution or its removal, please open an issue.
 
 ---
 *Parts of this documentation were written with the help of AI, but all the hours of tweaking (stealing) CSS were purely, painfully human.*
-
