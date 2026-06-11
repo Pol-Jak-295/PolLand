@@ -67,7 +67,7 @@ else
         cp "$REPO_DIR/.zshrc" "$HOME/.zshrc"
         cp "$REPO_DIR/.zshrc.core" "$HOME/.zshrc.core"
         cp "$REPO_DIR/.zshrc.aliases" "$HOME/.zshrc.aliases"
-        cp "$REPO_DIR/.zshr.fucntionsc" "$HOME/.zshrc.functions"
+        cp "$REPO_DIR/.zshrc.fucntions" "$HOME/.zshrc.functions"
         cp "$REPO_DIR/.zprofile" "$HOME/.zprofile"
     done
 fi

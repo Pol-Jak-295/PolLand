@@ -293,6 +293,7 @@ Most changes take effect instantly or after a Hyprland reload (`Super+Shift+R`).
 - **Hardcoded Paths:** Some configs, especially older ones, might still have hardcoded paths from my system (`/home/jaka/...`). You **must** fix these for your username.
 - **Arch-Centric:** The installer and dependencies are heavily biased toward Arch Linux and the AUR. Adapting to other distros will be a manual process.
 - **Hyprland 0.55+ Required:** The Lua config will not work on older versions.
+- **Waybar** Official release version might not yet support the lua api.
 - **"My Kind of Janky":** Some experimental features might be fragile. That's part of the fun.
 
 ## TODO

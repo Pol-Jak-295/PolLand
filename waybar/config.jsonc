@@ -115,7 +115,6 @@
     },
     "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
     "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
-    "on-click-release": "notify-send 'You clicked on a workspace icon' 'Good instinct, but that feature is not available yet. Unless you fix it for me. :) \n(You can still scroll to switch)'"
 }
 }
 
