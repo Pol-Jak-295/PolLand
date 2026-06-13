@@ -6,7 +6,7 @@
 	"margin-top": 2,
 	"modules-left": ["custom/launcher", "cpu","memory", "network", "tray", "custom/lyrics"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["backlight","pulseaudio","clock", "battery", "custom/power"],
+	"modules-right": ["backlight","pulseaudio","clock#date", "clock#time", "battery", "custom/power"],
 	"height": 26,
 	
 	"pulseaudio": {
@@ -69,12 +69,15 @@
 		"icon-size":18,
 		"spacing": 10
 	},
-"clock": {
+"clock#time": {
 	"interval": 1,
 	"format": " {:%H:%M}",
 	"max-length": 25
 },
-
+"clock#date": {
+	"interval": 60,
+	"format": "󰃭 {:%d/%m/%y}",
+},
 
     "cpu": {
         "interval": 1,
