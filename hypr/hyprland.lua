@@ -33,6 +33,7 @@ local menu        = "rofi -show drun -theme ~/.config/rofi/launchers/type-6/styl
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/i
 
 hl.on("hyprland.start", function ()
+  hl.exec_cmd("nohup /usr/lib/xdg-desktop-portal > /dev/null 2>&1 &") -- please for the love of whoever you worship don't ask why
   hl.exec_cmd("waybar")
   hl.exec_cmd("awww-daemon")
   hl.exec_cmd("awww img ~/.config/images/bunker-night.jpg")

@@ -71,8 +71,7 @@
 	},
 "clock#time": {
 	"interval": 1,
-	"format": " {:%H:%M}",
-	"max-length": 25
+	"format": " {:%H:%M}"
 },
 "clock#date": {
 	"interval": 60,
@@ -117,7 +116,7 @@
         "10": "十"
     },
     "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
-    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'"
 }
 }
 
