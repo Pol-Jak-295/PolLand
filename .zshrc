@@ -14,7 +14,8 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k" # or "agnoster", "robbyrussel"
 export TERM=xterm-256color 
 export COLORTERM=truecolor
-
+export EDITOR=nvim
+export SUDO_EDITOR=nvim
 
 plugins=(
     git

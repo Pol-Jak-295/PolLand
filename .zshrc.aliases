@@ -18,11 +18,12 @@ alias nope='kill -9'
 alias ls='lsd -a'
 alias fuck='reboot'
 alias :wq='exit'    # My brain got vim-coded
+alias :q='exit'	    # vim
 alias screenoff='WAYLAND_DISPLAY=wayland-1 wlopm --off eDP-1'
 alias screenon='WAYLAND_DISPLAY=wayland-1 wlopm --on eDP-1'
 alias off='WAYLAND_DISPLAY=wayland-1 wlopm --off eDP-1'
 alias on='WAYLAND_DISPLAY=wayland-1 wlopm --on eDP-1'
-alias snvim='sudo -E nvim'
+alias svim='sudo -E nvim'
 
 # System
 alias sys='sudo systemctl'

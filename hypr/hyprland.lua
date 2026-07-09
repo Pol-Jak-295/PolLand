@@ -33,7 +33,7 @@ local menu        = "rofi -show drun -theme ~/.config/rofi/launchers/type-6/styl
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/i
 
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("nohup /usr/lib/xdg-desktop-portal > /dev/null 2>&1 &") -- please for the love of whoever you worship don't ask why
+  hl.exec_cmd("/usr/lib/xdg-desktop-portal") -- please for the love of whoever you worship don't ask why
   hl.exec_cmd("waybar")
   hl.exec_cmd("awww-daemon")
   hl.exec_cmd("awww img ~/.config/images/bunker-night.jpg")
@@ -245,13 +245,22 @@ hl.config({
         touchpad = {
             natural_scroll = true,
         },
+	
+        
     },
+})
+
+hl.gesture({
+    fingers = 4,
+    direction = "horizontal",
+    action = "workspace"
 })
 
 hl.gesture({
     fingers = 3,
     direction = "horizontal",
-    action = "workspace"
+    action = "scroll_move",
+    scale = 0.7
 })
 
 -- Example per-device config
@@ -348,6 +357,7 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e+1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mainMod .. " + SHIFT + mouse:272", hl.dsp.window.resize(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
