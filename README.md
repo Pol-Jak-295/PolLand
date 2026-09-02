@@ -88,7 +88,15 @@ This configuration is developed and tested on **Arch Linux**. Package names will
 
 ## Installation
 
-### Method 1: Automated Install (Recommended)
+### Method 1: Install from AUR (coming soon)
+   ```bash
+yay -Sy polland-de-minimal
+```
+OR
+```bash
+yay -Sy polland-de-full
+```
+### Method 2: Automated Install (recommended for now, arch based)
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/Pol-Jak-295/PolLand.git ~/PolLand
@@ -101,7 +109,7 @@ This configuration is developed and tested on **Arch Linux**. Package names will
     ```
     The script will guide you through backing up existing configs and setting up symlinks. It will also offer to run a `root-required-installer.sh` for system-wide components like the SDDM theme and nwg-bar icons.
 
-3.  **Install curd (anime launcher):**
+3.  **Install curd (anime launcher):** if you want it
     ```bash
     # Binary release (recommended)
     yay -S curd-polland-bin
@@ -112,13 +120,13 @@ This configuration is developed and tested on **Arch Linux**. Package names will
 
 4.  **Apply the changes:** Reload Hyprland with `Super+Shift+R`, or log out and back in.
 
-### Method 2: HailMary (curl|sh)
+### Method 3: HailMary (curl|sh)
 For the brave and the reckless. This bypasses all sanity checks and does not verify dependencies.
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Pol-Jak-295/PolLand/main/instantinstall.sh | sh
 ```
 
-### Method 3: Manual Installation
+### Method 4: Manual Installation
 Inspect everything and symlink what you like.
 1.  Clone the repo to `~/PolLand`.
 2.  Back up your existing configs in `~/.config`.
@@ -126,6 +134,7 @@ Inspect everything and symlink what you like.
     ```bash
     ln -s ~/PolLand/hypr ~/.config/hypr
     ln -s ~/PolLand/waybar ~/.config/waybar
+    ...
     ```
 4.  **Crucial:** Review `waybar/config.jsonc` and `hypr/hyprland.conf` for hardcoded paths or monitor layouts that need adjusting for your system. This step is mandatory.
 
