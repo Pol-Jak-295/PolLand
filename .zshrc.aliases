@@ -9,7 +9,7 @@ alias nm-status='nmcli -c no dev status'
 alias netinfo='ip -c addr; echo "---"; ip -c route; echo "---"; nmcli con show --active'
 
 # Daily Needs
-alias stfu='sudo pacman -Syuq'
+alias stfu='yay -Syuq'
 alias fucking='sudo -E env "PATH=$PATH" zsh -ic'
 alias ll='lsd -la'
 alias why='systemctl status'
@@ -63,3 +63,9 @@ alias ports='sudo ss -tulpn'
 
 # Connections (stay safe)
 alias ssh='ssh -o KexAlgorithms=mlkem768x25519-sha256'
+
+
+# Sound and me being lazy
+alias mute='pactl set-sink-mute @DEFAULT_SINK@ 1'
+alias peace='pactl set-sink-mute @DEFAULT_SINK@ 1 && pactl set-source-mute @DEFAULT_SOURCE@ 1 && WAYLAND_DISPLAY=wayland-1 wlopm --off eDP-1 && sudo tuned-adm profile laptop-battery-powersave'
+alias revive='pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-source-mute @DEFAULT_SOURCE@ 0 && WAYLAND_DISPLAY=wayland-1 wlopm --on eDP-1 && sudo tuned-adm profile throughput-performance'
