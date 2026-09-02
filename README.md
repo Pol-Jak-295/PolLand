@@ -89,6 +89,7 @@ This configuration is developed and tested on **Arch Linux**. Package names will
 ## Installation
 
 ### Method 1: Install from AUR (coming soon)
+1. **Install the package**
    ```bash
 yay -Sy polland-de-minimal
 ```
@@ -96,6 +97,10 @@ OR
 ```bash
 yay -Sy polland-de-full
 ```
+2. **Apply the changes**
+   ```bash
+   polland-sync
+   ```
 ### Method 2: Automated Install (recommended for now, arch based)
 1.  **Clone the repository:**
     ```bash
