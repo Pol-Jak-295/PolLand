@@ -304,7 +304,7 @@ Since this is what I would call v1 (closer to an open beta, that is going to the
  - User config migration
  - Backup before overwrite
  - Selective sync (skip certain apps)
-Most likely out of those up here will be per user config override files.
+#### Most likely out of those up here will be per user config override files.
 
 
 
