@@ -297,10 +297,16 @@ Most changes take effect instantly or after a Hyprland reload (`Super+Shift+R`).
 - **"My Kind of Janky":** Some experimental features might be fragile. That's part of the fun.
 
 ## TODO
+Since this is what I would call v1 (closer to an open beta, that is going to the aur) it is missing some features to make it suitable for many people. Future changes should include (will be there before v2, no timeline yet though):
+ - Override files (hyprland.override.conf, etc.) or
+ - Config merging or
+ - Git integration for user configs or
+ - User config migration
+ - Backup before overwrite
+ - Selective sync (skip certain apps)
 
-- **Fix clicking on waybar workspaces** — Currently scroll-to-switch works, but click-to-switch is not implemented. The button shows a notification instead. If you know how to map `on-click-release` to workspace switching in the new Hyprland Lua API, please open a PR or send a tip.
+ - Symlink support instead of copy
 
-- **Curd integration note** — `curd-polland` (my themed fork) is not included in this repo. It's a separate AUR package (`curd-polland-bin` or `curd-polland-git`). The keybinding `Super + A` expects it to be installed. Without it, the anime launcher won't work.
 
 
 
