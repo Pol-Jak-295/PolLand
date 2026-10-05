@@ -312,7 +312,7 @@ Most changes take effect instantly or after a Hyprland reload (`Super+Shift+R`).
 
 ## TODO
 Since this is what I would call v1 (closer to an open beta, that is going to the aur) it is missing some features to make it suitable for many people. Future changes should include (will be there before v2, no timeline yet though):
- - Override files (hyprland.override.conf, etc.) or
+ - Override files (hyprland.override.lua, rofi.override.rasi, etc.) or
  - Config merging or
  - Git integration for user configs or
  - User config migration
