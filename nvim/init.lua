@@ -137,3 +137,8 @@ require("lazy").setup({
     end,
   },
 })
+-- in init.lua
+vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.mapleader = ' '
+vim.keymap.set('n', '<leader>r', ':w<CR>:terminal python %<CR>' , { desc = 'Save and run Python' })
+-- :! python3 %<CR>'

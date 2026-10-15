@@ -6,10 +6,10 @@
     "type": "file",
     "source": "~/.config/fastfetch/miku.ansi",
     "color": {
-        "1": "38;5;80",   // Main Teal
-        "2": "38;5;232",  // Black
+        "1": "38;5;123",   // Main Teal
+        "2": "38;5;236",  // Black
         "3": "38;5;224",  // Skin
-        "4": "38;5;242",  // Dress
+        "4": "38;5;244",  // Dress
         "5": "38;5;86",   // Eyes
         "6": "38;5;211",  // Mouth
         "7": "38;5;118",  // Onion Green

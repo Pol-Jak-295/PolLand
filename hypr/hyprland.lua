@@ -11,11 +11,16 @@ hl.monitor({
 })
 hl.monitor({
     output   = "HDMI-A-1",
-    mode     = "1920x1200@60",
+    mode     = "2560x1440@120",
     position = "auto",
-    scale    = "2",
+    scale    = "1",
 })
-
+--hl.monitor({
+--	output = "HDMI-A-1",
+--	mode = "1920x1080@75",
+--	position = "auto",
+--	scale = "0.8",
+--})
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -39,13 +44,13 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("awww img ~/.config/images/bunker-night.jpg")
   hl.exec_cmd("dbus-update-activation-environment --systemd XCURSOR_THEME XCURSOR_SIZE")
   hl.exec_cmd("swaync")
-  hl.exec_cmd("~/.config/hypr/scripts/spotify-notify.sh")
   hl.exec_cmd("darkman run")
   hl.exec_cmd("darkman set dark")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
   hl.exec_cmd("fcitx5 -d")
   hl.exec_cmd("otd-daemon")
   hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
+  hl.exec_cmd("~/.config/hypr/scripts/spotify-notify.sh")
 end)
 
 
@@ -110,7 +115,7 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 10,
+        rounding       = 12,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
@@ -119,16 +124,16 @@ hl.config({
 
         shadow = {
             enabled      = true,
-            range        = 4,
+            range        = 6,
             render_power = 3,
             color        = 0xee1a1a1a,
         },
 
         blur = {
             enabled   = true,
-            size      = 3,
+            size      = 4,
             passes    = 1,
-            vibrancy  = 0.1696,
+            vibrancy  = 0.996,
         },
     },
 
@@ -374,6 +379,11 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
+
+-- Map Physical faders toggle 
+hl.bind("SUPER + ALT + up", hl.dsp.exec_cmd("nativmix --restart"))
+hl.bind("SUPER + ALT + down", hl.dsp.exec_cmd("pkill -9 nativmix"))
+
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
@@ -407,4 +417,8 @@ hl.window_rule({
     no_focus = true,
 })
 
-
+hl.config({
+  cursor = {
+    no_hardware_cursors = true,
+  },
+})

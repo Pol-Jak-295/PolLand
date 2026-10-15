@@ -67,5 +67,6 @@ alias ssh='ssh -o KexAlgorithms=mlkem768x25519-sha256'
 
 # Sound and me being lazy
 alias mute='pactl set-sink-mute @DEFAULT_SINK@ 1'
-alias peace='pactl set-sink-mute @DEFAULT_SINK@ 1 && pactl set-source-mute @DEFAULT_SOURCE@ 1 && WAYLAND_DISPLAY=wayland-1 wlopm --off eDP-1 && sudo tuned-adm profile laptop-battery-powersave'
-alias revive='pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-source-mute @DEFAULT_SOURCE@ 0 && WAYLAND_DISPLAY=wayland-1 wlopm --on eDP-1 && sudo tuned-adm profile throughput-performance'
+alias peace='pactl set-sink-mute @DEFAULT_SINK@ 1 ; pactl set-source-mute @DEFAULT_SOURCE@ 1 ; WAYLAND_DISPLAY=wayland-1 wlopm --off "*" ; sudo tuned-adm profile laptop-battery-powersave ; echo 0 | sudo tee /sys/bus/usb/devices/3-2/authorized /sys/bus/usb/devices/3-1/authorized'
+alias revive='pactl set-sink-mute @DEFAULT_SINK@ 0 ; pactl set-source-mute @DEFAULT_SOURCE@ 0 ; WAYLAND_DISPLAY=wayland-1 wlopm --on "*" ; sudo tuned-adm profile throughput-performance ; echo 1 | sudo tee /sys/bus/usb/devices/3-2/authorized /sys/bus/usb/devices/3-1/authorized'
+alias ask='yay -Ss'
